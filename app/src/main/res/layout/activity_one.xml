@@ -52,4 +52,15 @@
         android:layout_margin="10dp"
         android:src="@mipmap/shop_car" />
 
+    <TextView
+        android:id="@+id/tvCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivCar"
+        android:layout_toRightOf="@+id/ivCar"
+        android:text="0"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.SearchResult.Subtitle"
+        android:textColor="@android:color/holo_purple"
+        android:textSize="17sp" />
+
 </RelativeLayout>

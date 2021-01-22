@@ -26,16 +26,16 @@ import java.util.ArrayList;
  * @author Song
  */
 public class TwoActivity extends AppCompatActivity {
-    private ImageView cart;
-    private RecyclerView mRecyclerView;
-    private ArrayList<Bitmap> bitmapList = new ArrayList<>();
     private RelativeLayout rl;
+    private RecyclerView mRecyclerView;
+    private ImageView cart;
+    private TextView count;
+    private ArrayList<Bitmap> bitmapList = new ArrayList<>();
     private PathMeasure mPathMeasure;
     /**
      * 贝塞尔曲线中间过程的点的坐标
      */
     private float[] mCurrentPosition = new float[2];
-    private TextView count;
     private int i = 0;
 
     @Override

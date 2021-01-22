@@ -2,6 +2,7 @@ package com.anningtex.testbesselcurve.one;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.graphics.PointF;
 import android.os.Bundle;
@@ -17,10 +18,11 @@ import com.anningtex.testbesselcurve.R;
 public class OneActivity extends AppCompatActivity {
     private RelativeLayout rlMain;
     private ImageView ivCar;
-    private TextView tvAdd;
+    private TextView tvAdd, tvCount;
     private int[] addView = new int[2];
     private int[] shopView = new int[2];
     private int[] parentView = new int[2];
+    private int shopCarCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class OneActivity extends AppCompatActivity {
         rlMain = findViewById(R.id.rlMain);
         ivCar = findViewById(R.id.ivCar);
         tvAdd = findViewById(R.id.tvAdd);
+        tvCount = findViewById(R.id.tvCount);
 
         tvAdd.setOnClickListener(v -> {
             tvAdd.getLocationInWindow(addView);
@@ -61,6 +64,30 @@ public class OneActivity extends AppCompatActivity {
             valueAnimator.setDuration(1000);
             valueAnimator.setTarget(imageView);
             valueAnimator.start();
+            valueAnimator.addListener(new Animator.AnimatorListener() {
+
+                @Override
+                public void onAnimationStart(Animator animator) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animator) {
+                    shopCarCount++;
+                    tvCount.setText(String.valueOf(shopCarCount));
+                    rlMain.removeView(imageView);
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animator) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animator) {
+
+                }
+            });
         });
     }
 }
